@@ -31,8 +31,8 @@ namespace WpfSMSApp
         private void MetroWindow_ContentRendered(object sender, EventArgs e)
         {
             LoginView view = new LoginView();
-            view.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             view.Owner = this;
+            view.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             view.ShowDialog();
         }
     }
