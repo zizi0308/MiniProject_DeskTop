@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-    xmlns:local="clr-namespace:WpfSMSApp.View.User"
+    xmlns:local="clr-namespace:WpfSMSApp.View.User" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d" 
     d:DesignHeight="630" d:DesignWidth="1200"
     Title="UserList" Loaded="Page_Loaded">
@@ -44,6 +44,14 @@
                     FontSize="14"
                     Background="DarkSlateBlue" Foreground="White"
                     Content="사용자추가" Height="50" Margin="5, 10, 5, 5" Click="BtnAddUser_Click">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" Margin="20, 0" VerticalAlignment="Center" />
+                            <iconPacks:PackIconMaterial Kind="AccountPlus" Width="24" Height="24" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
             </Button>
             <Button x:Name="BtnEditUser" 
                     FontSize="14"
@@ -59,6 +67,14 @@
                     FontSize="14"
                     Background="Silver" Foreground="Black"
                     Content="PDF익스포트" Height="50" Margin="5, 5" Click="BtnExportPdf_Click">
+                <Button.ContentTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}" Margin="20, 0" VerticalAlignment="Center" />
+                            <iconPacks:PackIconCodicons Kind="FilePdf" Width="24" Height="24" />
+                        </StackPanel>
+                    </DataTemplate>
+                </Button.ContentTemplate>
             </Button>
         </StackPanel>
         <!-- 버튼입력 끝 -->
