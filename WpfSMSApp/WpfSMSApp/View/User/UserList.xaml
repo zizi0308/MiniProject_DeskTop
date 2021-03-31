@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:WpfSMSApp.View.User" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
     mc:Ignorable="d" 
     d:DesignHeight="630" d:DesignWidth="1200"
-    Title="UserList" Loaded="Page_Loaded">
+    Title="UserList" Loaded="Page_Loaded" Background="White">
     <Page.Resources>
         <Style TargetType="Label"><!-- {x:Type Label} -->
             <Setter Property="FontSize" Value="14" />
@@ -66,10 +66,10 @@
                     </DataTemplate>
                 </Button.ContentTemplate>
             </Button>
-            <Button x:Name="BtnDeactivateUser" 
+            <Button x:Name="BtnDeactiveUser" 
                     FontSize="14"
                     Background="DarkSlateBlue" Foreground="White"
-                    Content="사용자비활성화" Height="50" Margin="5, 5" Click="BtnDeactivateUser_Click">
+                    Content="사용자비활성화" Height="50" Margin="5, 5" Click="BtnDeactiveUser_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -114,13 +114,13 @@
                       Style="{StaticResource MahApps.Styles.DataGrid.Azure}"
                       ItemsSource="{Binding}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding UserID}" Header="순번" Width="60" />
-                    <DataGridTextColumn Binding="{Binding UserIdentityNumber}" Header="사번" Width="*" />
-                    <DataGridTextColumn Binding="{Binding UserSurname}" Header="성" Width="*" />
-                    <DataGridTextColumn Binding="{Binding UserName}" Header="이름" Width="*" />
-                    <DataGridTextColumn Binding="{Binding UserEmail}" Header="이메일" Width="*" />
-                    <DataGridTextColumn Binding="{Binding UserAdmin}" Header="관리자여부" Width="85" />
-                    <DataGridTextColumn Binding="{Binding UserActivated}" Header="활성여부" Width="85" />
+                    <DataGridTextColumn Binding="{Binding UserID}" Header="순번" Width="60" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding UserIdentityNumber}" Header="사번" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding UserSurname}" Header="성" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding UserName}" Header="이름" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding UserEmail}" Header="이메일" Width="*" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding UserAdmin}" Header="관리자여부" Width="85" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding UserActivated}" Header="활성여부" Width="85" IsReadOnly="True" />
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

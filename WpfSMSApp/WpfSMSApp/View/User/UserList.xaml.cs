@@ -1,5 +1,9 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,17 +56,58 @@ namespace WpfSMSApp.View.User
 
         private void BtnEditUser_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void BtnDeactivateUser_Click(object sender, RoutedEventArgs e)
-        {
-
+            try
+            {
+                NavigationService.Navigate(new EditUser());
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 BtnAddUser_Click : {ex}");
+                throw ex;
+            }
         }
 
         private void BtnExportPdf_Click(object sender, RoutedEventArgs e)
         {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "PDF File (*.pdf)|*.pdf";
+            saveDialog.FileName = "";
+            if (saveDialog.ShowDialog() == true)
+            {
+                //PDF 변환부분
+                try
+                {
+                    iTextSharp.text.Font font = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12);
+                    string pdfFilePath = saveDialog.FileName;
 
+                    iTextSharp.text.Document pdfDoc = new Document(PageSize.A4);
+                    
+                    // 1. PDF 생성시작
+                    PdfPTable pdfPTable = new PdfPTable(GrdData.Columns.Count);
+
+                    // 2. PDF 내용 만들기
+                    string nanumttf = Path.Combine(Environment.GetEnvironmentVariable("SystemRoot"), @"Fonts\NanumGothic.ttf");
+                    BaseFont nanumBase = BaseFont.CreateFont(nanumttf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                    var nanumFont = new iTextSharp.text.Font(nanumBase, 16f);
+
+                    Paragraph title = new Paragraph($@"Stock Management System : {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}", nanumFont);
+
+                    // 3. 실제 PDF 파일생성
+                    using (FileStream stream = new FileStream(pdfFilePath, FileMode.OpenOrCreate))
+                    {
+                        PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+                        // 2번에서 만든 내용을 추가
+                        pdfDoc.Add(title);
+                        pdfDoc.Close();
+                        stream.Close(); // option
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Commons.LOGGER.Error($"예외발생 BtnExportPdf_Click : {ex}");
+                }
+            } 
         }
 
         private void RdoAll_Checked(object sender, RoutedEventArgs e)
@@ -118,6 +163,19 @@ namespace WpfSMSApp.View.User
             catch (Exception ex)
             {
                 Commons.LOGGER.Error($"예외발생 : {ex}");
+            }
+        }
+
+        private void BtnDeactiveUser_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                NavigationService.Navigate(new DeactiveUser());
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"예외발생 BtnAddUser_Click : {ex}");
+                throw ex;
             }
         }
     }
