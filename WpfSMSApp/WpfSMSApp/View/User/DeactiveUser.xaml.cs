@@ -19,10 +19,6 @@ namespace WpfSMSApp.View.User
             InitializeComponent();
         }
 
-        private void ChangeLabelsVisible(Visibility visible)
-        {
-
-        }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
@@ -38,20 +34,11 @@ namespace WpfSMSApp.View.User
                 throw ex;
             }
         }
-
-
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
         }
 
-        public bool IsValidInput()
-        {
-            bool isValid = true;
-
-
-            return isValid;
-        }
 
         private async void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -64,10 +51,6 @@ namespace WpfSMSApp.View.User
                 return;
             }
 
-            
-            isValid = IsValidInput();
-            
-
             if (isValid)
             {
 
@@ -75,8 +58,6 @@ namespace WpfSMSApp.View.User
                 {
                     var user = GrdData.SelectedItem as Model.User;
                     user.UserActivated = false; // 사용자비활성화
-                    var mdHash = MD5.Create();
-                    
 
                     var result = Logic.DataAcess.SetUser(user);
                     if (result == 0)
@@ -92,7 +73,6 @@ namespace WpfSMSApp.View.User
                 {
                     Commons.LOGGER.Error($"예외발생 : {ex}");
                 }
-
             }
         }
 

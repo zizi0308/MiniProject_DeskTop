@@ -25,13 +25,13 @@
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="20*" />
         </Grid.ColumnDefinitions>
         <!-- 제목입력 시작 -->
         <Label Grid.Row="0" Grid.Column="1" Content="사용자정보 비활성화" FontSize="26" FontWeight="ExtraBold"
@@ -86,7 +86,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding}" Margin="5, 0" VerticalAlignment="Center" />
-                            <Image Source="/Resources/back_arrow.png" />
+                            <Image Source="/Resources/back_arrow.png" Width="24" Height="24" />
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>

@@ -3,11 +3,11 @@ using iTextSharp.text.pdf;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using WpfSMSApp.Model;
 
 
 
@@ -86,11 +86,11 @@ namespace WpfSMSApp.View.User
                     PdfPTable pdfPTable = new PdfPTable(GrdData.Columns.Count);
 
                     // 2. PDF 내용 만들기
-                    string nanumttf = Path.Combine(Environment.GetEnvironmentVariable("SystemRoot"), @"Fonts\NanumGothic.ttf");
+                    /*string nanumttf = Path.Combine(Environment.GetEnvironmentVariable("SystemRoot"), @"Fonts\NanumGothic.ttf");
                     BaseFont nanumBase = BaseFont.CreateFont(nanumttf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-                    var nanumFont = new iTextSharp.text.Font(nanumBase, 16f);
+                    var nanumFont = new iTextSharp.text.Font(nanumBase, 16f);*/
 
-                    Paragraph title = new Paragraph($@"Stock Management System : {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}", nanumFont);
+                    Paragraph title = new Paragraph($@"PKNU Stock Management System : {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}");
 
                     // 3. 실제 PDF 파일생성
                     using (FileStream stream = new FileStream(pdfFilePath, FileMode.OpenOrCreate))
