@@ -118,7 +118,7 @@
                 </Button.ContentTemplate>
             </Button>
             <Button x:Name="BtnWatchTrailer" Content="예고편보기" Margin="5, 10" Width="130" FontSize="12"
-                    Background="#5E303F" Foreground="White" Click="BtnWatchTrailer_Click">
+                    Background="#B36272" Foreground="White" Click="BtnWatchTrailer_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -129,12 +129,12 @@
                 </Button.ContentTemplate>
             </Button>
             <Button x:Name="BtnNaverMovieLink" Content="네이버영화" Margin="5, 10" Width="130" FontSize="12"
-                    Background="#5E303F" Foreground="White" Click="BtnNaverMovieLink_Click">
+                    Background="#ECCCD3" Foreground="Black" Click="BtnNaverMovieLink_Click">
                 <Button.ContentTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding}" Margin="10, 0" />
-                            <iconPacks:PackIconForkAwesome Kind="YoutubePlay" />
+                            <iconPacks:PackIconForkAwesome Kind="VideoCamera" />
                         </StackPanel>
                     </DataTemplate>
                 </Button.ContentTemplate>

@@ -86,7 +86,7 @@ namespace NaverMovieFinderApp
                 movieItems.Add(movie);
             }
 
-            GrdData.DataContext = movieItems;
+            this.DataContext = movieItems;
         }
 
         private void TxtMovieName_KeyDown(object sender, KeyEventArgs e)
@@ -200,8 +200,8 @@ namespace NaverMovieFinderApp
             }
 
             this.DataContext = listData;
-            
         }
+
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
