@@ -62,7 +62,7 @@ TextBox에 '마션'이라는 영화를 검색했습니다. 검색할 때 문자�
 
 ![Delete_FavorList4](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfMiniProject/Images/img_20210405_180431_001.png)
 
-MovieFinderApp과 DB와 연동된 모습입니다. DB에는 RegDate를 넣어 즐겨찾기에 추가한 날짜를 알 수 있게 만들었습니다.
+MovieFinderApp과 DB가 연동된 모습입니다. DB에는 RegDate를 넣어 즐겨찾기에 추가한 날짜를 알 수 있게 만들었습니다.
 
 <br/>
 <br/>
