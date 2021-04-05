@@ -71,7 +71,7 @@ MovieFinderApp과 DB가 연동된 모습입니다. DB에는 RegDate를 넣어 �
 ### 5. 유튜브 영화보기
 
 
-![[Youtube_Watch_Image1](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfMiniProject/Images/img_20210405_160453_001.png)
+![Youtube_Watch_Image1](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfMiniProject/Images/img_20210405_160453_001.png)
 
 즐겨찾기를 조회한 부분에서 영화 '미나리' 선택해 유튜브 영화보기 버튼을 눌러보겠습니다.
 
