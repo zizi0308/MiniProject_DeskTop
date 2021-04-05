@@ -209,7 +209,7 @@ namespace NaverMovieFinderApp
                 this.DataContext = list;
                 StsResult.Content = $"즐겨찾기 {list.Count}개 조회";
                 if (Commons.IsDelete)
-                    Commons.ShowMessageAsync("즐겨찾기", "즐겨찾기 삭제 완료");
+                    Commons.ShowMessageAsync("즐겨찾기", "즐겨찾기삭제 완료");
                 
                 else 
                     Commons.ShowMessageAsync("즐겨찾기", "즐겨찾기보기 조회 완료");
