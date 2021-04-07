@@ -12,11 +12,21 @@ namespace WpfSMSApp.View.Store
     /// <summary>
     /// MyAccount.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class AddStore : Page
+    public partial class EditStore : Page
     {
-        public AddStore()
+        private int StoreID { get; set; }
+        
+        // 수정할 창고객체
+        private Model.Store CurrentStore { get; set; }
+        public EditStore()
         {
             InitializeComponent();
+        }
+
+        //추가생성자 생성 StoreList에서 storeId를 받아옴
+        public EditStore(int storeId) : this()
+        {
+            StoreID = storeId;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -25,6 +35,20 @@ namespace WpfSMSApp.View.Store
                      Visibility.Hidden;
 
                 TxtStoreID.Text = TxtStoreLocation.Text = TxtStoreName.Text = "";
+
+            try
+            {
+                // StoreTbl에서 내용 읽음
+                CurrentStore = Logic.DataAcess.GetStores().Where(s => s.StoreID.Equals(StoreID)).FirstOrDefault();
+                TxtStoreID.Text = CurrentStore.StoreID.ToString();
+                TxtStoreName.Text = CurrentStore.StoreName;
+                TxtStoreLocation.Text = CurrentStore.StoreLocation;
+            }
+            catch (Exception ex)
+            {
+                Commons.LOGGER.Error($"EditStore.xaml.cs Page 예외발생 : {ex}");
+                Commons.ShowMessageAsync("예외", $"예외발생 : {ex}");
+            }
         }
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
@@ -70,29 +94,29 @@ namespace WpfSMSApp.View.Store
             LblStoreLocation.Visibility = LblStoreName.Visibility =
                    Visibility.Hidden;
 
-            var store = new Model.Store();
+            CurrentStore = new Model.Store();
             isValid = IsValidInput(); // 유효성체크 >> 중복값, 입력값 확인 DB에 제대로 잘 들어갔는지 확인하기 위해 필수!!
             
 
             if (isValid)
             {
                 //MessageBox.Show("DB 수정처리");
-                store.StoreName = TxtStoreName.Text;
-                store.StoreLocation = TxtStoreLocation.Text;
+                CurrentStore.StoreName = TxtStoreName.Text;
+                CurrentStore.StoreLocation = TxtStoreLocation.Text;
 
                 try
                 {
-                    var result = Logic.DataAcess.SetStore(store);
+                    var result = Logic.DataAcess.SetStore(CurrentStore);
                     if (result == 0)
                     {
                         // 수정안됨
-                        Commons.LOGGER.Error("AddStore.xaml.cs 창고저장 오류발생");
-                        Commons.ShowMessageAsync("오류", "저장 시 오류가 발생했습니다");
+                        Commons.LOGGER.Error("AddStore.xaml.cs 창고정보 수정오류발생");
+                        Commons.ShowMessageAsync("오류", "수정 시 오류가 발생했습니다");
                         return;
                     }
                     else
                     {
-                        //NavigationService.Navigate(new UserList());
+                        NavigationService.Navigate(new StoreList());
                     }
                 }
                 catch (Exception ex)
