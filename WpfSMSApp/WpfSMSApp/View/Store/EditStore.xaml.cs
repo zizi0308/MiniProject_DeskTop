@@ -46,7 +46,7 @@ namespace WpfSMSApp.View.Store
             }
             catch (Exception ex)
             {
-                Commons.LOGGER.Error($"EditStore.xaml.cs Page 예외발생 : {ex}");
+                Commons.LOGGER.Error($"EditStore.xaml.cs Page_Loaded 예외발생 : {ex}");
                 Commons.ShowMessageAsync("예외", $"예외발생 : {ex}");
             }
         }
@@ -56,7 +56,7 @@ namespace WpfSMSApp.View.Store
             NavigationService.GoBack();
         }
 
-        bool IsValid = true;
+        bool IsValid = true; // 지역변수 ---> 전역변수
 
         public bool IsValidInput()
         {
@@ -66,7 +66,7 @@ namespace WpfSMSApp.View.Store
                 LblStoreName.Text = "창고명을 입력하세요";
                 IsValid = false;
             }
-            else
+            /*else
             {
                 var cnt = Logic.DataAcess.GetStores().Where(u => u.StoreName.Equals(TxtStoreName.Text)).Count();
                 if (cnt > 0)
@@ -75,7 +75,7 @@ namespace WpfSMSApp.View.Store
                     LblStoreName.Text = "중복된 창고명이 존재합니다";
                     IsValid = false;
                 }
-            }
+            }*/
 
             if (string.IsNullOrEmpty(TxtStoreLocation.Text))
             {
@@ -84,17 +84,14 @@ namespace WpfSMSApp.View.Store
                 IsValid = false;
             }
 
-
             return IsValid;
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             bool isValid = true; // 입력된 값이 모두 만족하는지 판별하는 플래그
-            LblStoreLocation.Visibility = LblStoreName.Visibility =
-                   Visibility.Hidden;
+            LblStoreLocation.Visibility = LblStoreName.Visibility = Visibility.Hidden;
 
-            CurrentStore = new Model.Store();
             isValid = IsValidInput(); // 유효성체크 >> 중복값, 입력값 확인 DB에 제대로 잘 들어갔는지 확인하기 위해 필수!!
             
 
