@@ -31,9 +31,7 @@ namespace WpfSMSApp.View.Store
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-                LblStoreName.Visibility = LblStoreLocation.Visibility =
-                     Visibility.Hidden;
-
+                LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;
                 TxtStoreID.Text = TxtStoreLocation.Text = TxtStoreName.Text = "";
 
             try
@@ -60,6 +58,8 @@ namespace WpfSMSApp.View.Store
 
         public bool IsValidInput()
         {
+            IsValid = true;
+
             if (string.IsNullOrEmpty(TxtStoreName.Text))
             {
                 LblStoreName.Visibility = Visibility.Visible;
@@ -90,7 +90,7 @@ namespace WpfSMSApp.View.Store
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             bool isValid = true; // 입력된 값이 모두 만족하는지 판별하는 플래그
-            LblStoreLocation.Visibility = LblStoreName.Visibility = Visibility.Hidden;
+            LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;
 
             isValid = IsValidInput(); // 유효성체크 >> 중복값, 입력값 확인 DB에 제대로 잘 들어갔는지 확인하기 위해 필수!!
             

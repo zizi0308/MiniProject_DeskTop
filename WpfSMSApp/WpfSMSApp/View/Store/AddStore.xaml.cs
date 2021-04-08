@@ -21,9 +21,7 @@ namespace WpfSMSApp.View.Store
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-                LblStoreName.Visibility = LblStoreLocation.Visibility =
-                     Visibility.Hidden;
-
+                LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;
                 TxtStoreID.Text = TxtStoreLocation.Text = TxtStoreName.Text = "";
         }
 
@@ -32,10 +30,12 @@ namespace WpfSMSApp.View.Store
             NavigationService.GoBack();
         }
 
-        bool IsValid = true;
+        private bool IsValid = true; // 지역변수 --> 전역변수
 
         public bool IsValidInput()
         {
+            IsValid = true;
+
             if (string.IsNullOrEmpty(TxtStoreName.Text))
             {
                 LblStoreName.Visibility = Visibility.Visible;
@@ -60,15 +60,13 @@ namespace WpfSMSApp.View.Store
                 IsValid = false;
             }
 
-
             return IsValid;
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             bool isValid = true; // 입력된 값이 모두 만족하는지 판별하는 플래그
-            LblStoreLocation.Visibility = LblStoreName.Visibility =
-                   Visibility.Hidden;
+            LblStoreName.Visibility = LblStoreLocation.Visibility = Visibility.Hidden;
 
             var store = new Model.Store();
             isValid = IsValidInput(); // 유효성체크 >> 중복값, 입력값 확인 DB에 제대로 잘 들어갔는지 확인하기 위해 필수!!
@@ -76,23 +74,23 @@ namespace WpfSMSApp.View.Store
 
             if (isValid)
             {
-                //MessageBox.Show("DB 수정처리");
+                //MessageBox.Show("DB 입력처리");
                 store.StoreName = TxtStoreName.Text;
                 store.StoreLocation = TxtStoreLocation.Text;
 
                 try
                 {
-                    var result = Logic.DataAcess.SetStore(store);
+                    var result = Logic.DataAcess.SetStore(store); // Logic.DataAccess.SetUser(user);
                     if (result == 0)
                     {
                         // 수정안됨
                         Commons.LOGGER.Error("AddStore.xaml.cs 창고저장 오류발생");
-                        Commons.ShowMessageAsync("오류", "저장 시 오류가 발생했습니다");
+                        Commons.ShowMessageAsync("오류", "저장시 오류가 발생했습니다");
                         return;
                     }
                     else
                     {
-                        //NavigationService.Navigate(new UserList());
+                        NavigationService.Navigate(new StoreList());
                     }
                 }
                 catch (Exception ex)

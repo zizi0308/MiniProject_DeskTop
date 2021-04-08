@@ -25,6 +25,7 @@ namespace WpfSMSApp.View.Account
                 TxtUserIdentityNumber.Text = user.UserIdentityNumber.ToString();
                 TxtUserSurname.Text = user.UserSurname.ToString();
                 TxtUserName.Text = user.UserName.ToString();
+                TxtUserEmail.Text = user.UserEmail.ToString();
                 TxtUserAdmin.Text = user.UserAdmin.ToString();
                 TxtUserActivated.Text = user.UserActivated.ToString();
             }
