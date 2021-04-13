@@ -95,8 +95,10 @@ MovieFinderApp과 DB가 연동된 모습입니다. DB에는 RegDate를 넣어 �
 <br/>
 <br/>
 
+-----------------
+
 ## Wpf Store Management System App(SMSApp)
-배웠던 내용들을 활용해 창고관리시스템을 만들었습니다.
+배웠던 내용들을 활용해 재고관리시스템을 만들었습니다.
 
 
 ### 1. 로그인 화면
@@ -105,13 +107,13 @@ MovieFinderApp과 DB가 연동된 모습입니다. DB에는 RegDate를 넣어 �
 
 초기 로그인 화면입니다.
 
-1[SMS_Login_Image2](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_170427_001.png)
+![SMS_Login_Image2](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_170427_001.png)
 
 <br/>
 
 ### 2. 계정정보 화면
 
--계정정보 표시
++계정정보 표시
 
 ![Account_Image](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150420_001.png)
 
