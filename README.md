@@ -113,7 +113,7 @@ MovieFinderApp과 DB가 연동된 모습입니다. DB에는 RegDate를 넣어 �
 
 ### 2. 계정정보 화면
 
-+계정정보 표시
++ 계정정보 표시
 
 ![Account_Image](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150420_001.png)
 
