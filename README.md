@@ -109,6 +109,8 @@ MovieFinderApp과 DB가 연동된 모습입니다. DB에는 RegDate를 넣어 �
 
 ![SMS_Login_Image2](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_170427_001.png)
 
+로그인 취소화면입니다.
+
 <br/>
 
 ### 2. 계정정보 화면
@@ -139,7 +141,7 @@ MovieFinderApp과 DB가 연동된 모습입니다. DB에는 RegDate를 넣어 �
 
 ### 3. 사용자 정보화면
 
-#### 사용자 정보화면은 사용자추가, 수정, 비활성화, PDF익스포트 버튼으로 구성되어있고 사용자리스트를 보여주는 DataGridView와 활성상태구분을 위한 RadioButton으로 구성되어있습니다.
+##### 사용자 정보화면은 사용자추가, 수정, 비활성화, PDF익스포트 버튼으로 구성되어있고 사용자리스트를 보여주는 DataGridView와 활성상태구분을 위한 RadioButton으로 구성되어있습니다.
 
 
 
