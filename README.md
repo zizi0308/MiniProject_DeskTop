@@ -90,6 +90,125 @@ MovieFinderApp과 DB가 연동된 모습입니다. DB에는 RegDate를 넣어 �
 
 영화 '미나리'의 네이버 영화보기 버튼을 클릭한 모습입니다. 클릭하는 즉시 바로 해당 네이버 영화의 URL로 이동하는 것을 볼 수 있습니다.
 
+<br/>
+<br/>
+<br/>
+<br/>
+
+## Wpf Store Management System App(SMSApp)
+배웠던 내용들을 활용해 창고관리시스템을 만들었습니다.
+
+
+### 1. 로그인 화면
+
+![SMS_Login_Image1](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150407_001.png)
+
+초기 로그인 화면입니다.
+
+1[SMS_Login_Image2](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_170427_001.png)
+
+<br/>
+
+### 2. 계정정보 화면
+
+-계정정보 표시
+
+![Account_Image](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150420_001.png)
+
+로그인 후 계정정보를 클릭하면 해당 계정의 로그인 정보가 표시됩니다. Navigate를 이용하여 계정정보 수정을 원한다면 수정 페이지로 이동할 수 있게 만들었습니다.
+
+<br/>
+
+-계정정보 수정
+
+![Account_Image2](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150421_001.png)
+
+이메일을 수정해보았습니다. 수정에 성공했다면 "정상적으로 수정되었습니다"라는 메세지가 뜨고 수정이 완료됩니다.
+
+
+![Account_Image3](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150414_001.png)
+
+계정정보 수정 후 이미지입니다. 이메일이 정상적으로 변경되었습니다.
+
+<br/>
+<br/>
+
+### 3. 사용자 정보화면
+
+#### 사용자 정보화면은 사용자추가, 수정, 비활성화, PDF익스포트 버튼으로 구성되어있고 사용자리스트를 보여주는 DataGridView와 활성상태구분을 위한 RadioButton으로 구성되어있습니다.
+
+
+
+-사용자정보 표시
+
+![UserList_Image1](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150442_001.png)
+
+사용자버튼을 클릭했을 때 나오는 사용자 리스트입니다.
+
+
+-사용자 추가
+
+![UserList_Image2](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150442_002.png)
+
+"조희지"사용자를 사용자 리스트에 추가했습니다. 이렇게 새로운 회원을 리스트에 추가하는 것이 가능합니다.
+
+<br/>
+
+-사용자 정보수정
+
+![UserList_Image3](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150433_001.png)
+
+순번 5번의 "홍길순" 회원의 이름을 "김"길순으로 수정해보겠습니다.
+
+
+-사용자정보 수정 결과
+
+![UserList_Image4](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150459_001.png)
+
+정상적으로 수정이 완료되었습니다.
+
+<br/>
+
+-사용자 비활성화
+
+![UserList_Image5](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150408_001.png)
+
+사용자 비활성화 버튼을 클릭한 후, 박 애슐리의 사용자 정보를 비활성화 해보겠습니다.
+
+
+-사용자 비활성화 결과
+
+![UserList_Image6](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150419_001.png)
+
+사용자 박애슐리의 활성여부가 정상적으로 비활성화 됬습니다.
+
+![UserList_Image7](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150426_001.png)
+
+라디오 버튼으로도 해당 결과를 알 수 있습니다.
+
+<br/>
+
+-PDF 익스포트
+
+![PDF_Image1](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150416_001.png)
+
+PDF익스포트 버튼을 눌렀을때 실행되는 결과입니다. User_List라는 이름의 파일을 생성해보겠습니다.
+
+-PDF 익스포트 저장
+
+![PDF_Image2](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150432_001.png)
+ 
+파일 생성 후 저장을 했을 때 "저장에 성공했습니다" 라는 메세지가 나옵니다.
+
+-PDF 파일(User_List) 실행 
+
+![PDF_Image3](https://github.com/zizi0308/MiniProject_DeskTop/blob/main/WpfSMSApp/images/img_20210408_150450_001.png)
+
+파일이 정상적으로 생성되었습니다.
+
+
+
+
 
 
 
