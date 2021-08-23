@@ -35,11 +35,11 @@ namespace NaverMovieFinderApp
 
             try
             {
-                WebRequest request = WebRequest.Create(openApiUrl);
-                request.Headers.Add("X-Naver-Client-Id", clientID);
+                WebRequest request = WebRequest.Create(openApiUrl);     // 사용하고자 하는 URL 요청
+                request.Headers.Add("X-Naver-Client-Id", clientID);     // 네이버 API를 쓰기 위해 무조건 넣어줘야 함
                 request.Headers.Add("X-Naver-Client-Secret", clientSecret);
 
-                WebResponse response = request.GetResponse();
+                WebResponse response = request.GetResponse();           // 요청에 대한 응답    
                 Stream stream = response.GetResponseStream();
                 StreamReader reader = new StreamReader(stream);
 

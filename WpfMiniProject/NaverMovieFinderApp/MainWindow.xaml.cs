@@ -23,6 +23,11 @@ namespace NaverMovieFinderApp
 {
     /// <summary>
     /// MainWindow.xaml에 대한 상호 작용 논리
+    /// MetroWindow 기본설정
+    /// UI 구현 및 이벤트 생성
+    /// 네이버 API 받아오기
+    /// API 목록 DB구현
+    /// EntityFrameWork로 DB데이터 받아옴 (추가 - 새항목 - 데이터 - ADO.NET 엔티티)
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
@@ -33,8 +38,8 @@ namespace NaverMovieFinderApp
 
         private void BtnSearch_Click(object sender, RoutedEventArgs e)
         {
-            StsResult.Content = "";
-            ImgPoster.Source = new BitmapImage(new Uri("no_picture.jpg", UriKind.RelativeOrAbsolute));
+            StsResult.Content = ""; // 상태바의 내용이 없을 때
+            ImgPoster.Source = new BitmapImage(new Uri("no_picture.jpg", UriKind.RelativeOrAbsolute));  // 이미지 사용 시 필요한 Uri(상대경로)
 
 
             if (string.IsNullOrEmpty(TxtMovieName.Text))
