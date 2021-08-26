@@ -64,14 +64,16 @@ namespace NaverMovieFinderApp
             Commons.IsFavorite = false; // 즐겨찾기 아님
         }
 
+        /*Naver API 사용을 위한 사용자 정보입력 부분*/
         private void PorcSearchNaverApi(string movieName)
         {
-            string clientID = "kOQI3W4J8QmJV8UukmBZ";
-            string clientSecret = "e9EjOaik91";
+            // API 호츨
+            string clientID = "kOQI3W4J8QmJV8UukmBZ";       // 발급받은 API 아이디
+            string clientSecret = "e9EjOaik91";             // 발급받은 API 비밀번호
             string openApiUrl = $"https://openapi.naver.com/v1/search/movie?start=1&display=30&query={movieName}";
 
             string resJson = Commons.GetOpenApiResult(openApiUrl, clientID, clientSecret);
-            JObject parsedJson = JObject.Parse(resJson);
+            JObject parsedJson = JObject.Parse(resJson);    // API 에서 발급받은 정보(string)를 JSON으로 파싱
 
             int total = Convert.ToInt32(parsedJson["total"]);
             int display = Convert.ToInt32(parsedJson["display"]);
@@ -81,8 +83,7 @@ namespace NaverMovieFinderApp
             JToken items = parsedJson["items"];
             JArray json_array = (JArray)items;
 
-            List<MovieItem> movieItems = new List<MovieItem>();
-
+            List<MovieItem> movieItems = new List<MovieItem>(); // API에서 불러온 데이터들을 저장할 리스트 선언
             foreach (var item in json_array)
             {
                 MovieItem movie = new MovieItem(
@@ -97,15 +98,15 @@ namespace NaverMovieFinderApp
                 movieItems.Add(movie);
             }
 
-            this.DataContext = movieItems;
+            this.DataContext = movieItems;      // 그리드에 데이터 바인딩
         }
 
-        private void TxtMovieName_KeyDown(object sender, KeyEventArgs e)
+        private void TxtMovieName_KeyDown(object sender, KeyEventArgs e)    // 엔터 시 검색버튼 클릭
         {
             if (e.Key == Key.Enter) BtnSearch_Click(sender, e);
         }
 
-        private void GrdData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        private void GrdData_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)   // 셀 선택변경시 이미치 변경처리
         {
             //if (GrdData.SelectedItem == null)
             //{
@@ -197,13 +198,14 @@ namespace NaverMovieFinderApp
 
         }
 
+        // 즐겨찾기 보기 버튼 클릭 이벤트
         private void BtnViewWatchList_Click(object sender, RoutedEventArgs e)
         {
             this.DataContext = null;
             TxtMovieName.Text = "";
 
             // List<MovieItem> listData = new List<MovieItem>();
-            List<NaverFavoriteMovies> list = new List<NaverFavoriteMovies>();
+            List<NaverFavoriteMovies> list = new List<NaverFavoriteMovies>();   // DB값을 저장할 리스트 선언
 
             try
             {
